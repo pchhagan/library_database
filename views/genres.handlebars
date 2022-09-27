@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Genres</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+</head>
+
+<body>
+    <!--Horizontal banner at top to navigate pages-->
+    <nav class="navbar navbar-expand-lg navbar-light text-dark bg-warning bg-opacity-50">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+
+                    <a class="nav-link" href="/authors">Authors</a>
+                    <a class="nav-link active" aria-current="page" href="/genres">Genres</a>                    
+                    <a class="nav-link" href="/books">Books</a>
+                    <a class="nav-link" href="/libraryPatrons">Library Patrons</a>
+                    <a class="nav-link" href="/activeLoans">Active Loans</a>
+                    <a class="nav-link" href="/authoredworks">Authored Works</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!--Page Title/Description-->
+    <div class="container-fluid text-center p-5">
+        <h1>Genres</h1>
+        <h3>   This page is for viewing current or adding new Genres   </h3>
+        <p></p>
+    </div>
+
+    <!--form to add new genre-->
+    <div class="m-5">
+        <form id="newGenreForm" action="/genres" method="post">
+            <label class="h4" for="newGenreForm" class="h4"> Add New Genre:  </label>
+            <input type="text" name="name" placeholder="Enter genre name..." required>
+            <input type="radio" id="radio3" name="radioB" value="1" required><label for="radio3">   Fiction         </label>
+            <input type="radio" id="radio4" name="radioB" value="0" required><label for="radio4">   Non Fiction     </label>
+            <button type="submit"  class="btn btn-primary"> Add Genre  </button>
+        </form>
+    </div>
+
+    <div class="m-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">genreID</th>
+                    <th scope="col">name</th>
+                    <th scope="col">isFiction</th>
+                </tr>
+            </thead>
+            <tbody>
+            {{#each genres}}
+            <tr>
+                <td>{{genreID}}</td>
+                <td>{{name}}</td>
+                <td>{{isFiction}}</td>
+            </tr>
+            {{/each}}
+
+            </tbody>
+        </table>
+    </div>
+
+    <script src="perrinieJs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
+
